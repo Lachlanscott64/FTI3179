@@ -1,0 +1,68 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "width": 800,
+      "height": 400,
+      "title": "Players",
+      "data": {
+        "url": "https://raw.githubusercontent.com/Lachlanscott64/FTI3179/main/hltv_playerStats-complete.csv"
+      },
+      "params": [
+        {
+          "name": "Maps_Above",
+          "value": 0,
+          "bind": {
+            "input": "range",
+            "min": 1250,
+            "max": 2000,
+            "step": 10,
+            "name": "Minimum Maps Played"
+          }
+        }
+      ],
+      "transform": [
+        {"filter": "datum.maps_played > Maps_Above"}
+      ],
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "nick",
+          "type":"ordinal",
+          "title": "Players"
+        },
+        "y": {
+          "field": "maps_played",
+          "type":"quantitative",
+          "title": "Maps Played"
+        },
+        "tooltip": [
+          {"field": "nick", "type": "ordinal"},
+          {"field": "maps_played", "type": "quantitative"},
+          {"field": "country", "type": "ordinal"}
+        ]
+      },
+      "layer": [
+        {
+          "mark": "bar"
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "middle",
+            "baseline": "bottom",
+            "dx": -12,
+            "fontSize": 11.5
+          },
+          "encoding": {
+            "text": {"field": "nick", "type": "nominal"},
+            "opacity": {
+              "condition": {
+                "test": "datum['nick'] == 'TaZ' || datum['nick'] == 'f0rest' || datum['nick'] == 'kennyS' || datum['nick'] == 'NBK-' || datum['nick'] == 'shox'",
+                "value":" 1"
+              },
+              "value": 0
+            }
+          }
+        }
+      ]
+  }
+      

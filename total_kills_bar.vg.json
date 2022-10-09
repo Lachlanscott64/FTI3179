@@ -1,0 +1,33 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "width": 800,
+      "height": 400,
+      "title": "Players",
+      "data": {
+        "url": "https://raw.githubusercontent.com/Lachlanscott64/FTI3179/main/hltv_playerStats-complete.csv"
+      },
+      "transform": [
+        {"filter": "datum.total_kills > 30000"}
+      ],
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "nick",
+          "type":"ordinal",
+          "title": "Players"
+        },
+        "y": {
+          "field": "total_kills",
+          "type":"quantitative",
+          "title": "Number of Kills"
+        },
+        "color": {},
+        "tooltip": [
+          {"field": "nick", "type": "ordinal"},
+          {"field": "total_kills", "type": "quantitative"},
+          {"field": "country", "type": "ordinal"}
+        ]
+      }
+     
+  }
+      

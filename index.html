@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+        integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Week 10 Homework</title>
+
+</head>
+
+<body>
+    <div id="maps_bar_chart"></div>
+
+    <script type="text/javascript">
+    
+        // var spec2 = "js/stacked_bar_chart.vg.json";
+        var vg_1 = "maps_played_bar.vg.json"
+
+        vegaEmbed('#maps_bar_chart', vg_1).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+    </script>
+    
+    <div id="kills_bar_chart"></div>
+
+    <script type="text/javascript">
+    
+        // var spec2 = "js/stacked_bar_chart.vg.json";
+        var vg_2 = "total_kills_bar.vg.json"
+
+        vegaEmbed('#kills_bar_chart', vg_2).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+    </script>
+
+</body>
+
+</html>
